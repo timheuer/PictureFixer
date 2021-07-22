@@ -42,7 +42,7 @@ jobs:
     #    bash ./dotnet-install.sh -Version 6.0.100-preview.5.21302.13 -Verbose
     #    echo "$HOME/.dotnet" >> $GITHUB_PATH
 
-    #- name: Setup .NET Core SDK
+    - name: Setup .NET Core SDK
       uses: actions/setup-dotnet@v1.8.1
       with:
         dotnet-version: 6.0.x #6.0.100-preview.5.21302.13
