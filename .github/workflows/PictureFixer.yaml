@@ -36,21 +36,21 @@ jobs:
      
     # workaround to force using preview 5 currently due to https://github.com/dotnet/sdk/issues/17865
     # remove this and use setup-dotnet@v1.8.0 when Preview 5 is public
-    - name: Setup .NET Preview SDK
-      run: |
-        wget https://dot.net/v1/dotnet-install.sh
-        bash ./dotnet-install.sh -Version 6.0.100-preview.5.21302.13 -Verbose
-        echo "$HOME/.dotnet" >> $GITHUB_PATH
+    #- name: Setup .NET Preview SDK
+    #  run: |
+    #    wget https://dot.net/v1/dotnet-install.sh
+    #    bash ./dotnet-install.sh -Version 6.0.100-preview.5.21302.13 -Verbose
+    #    echo "$HOME/.dotnet" >> $GITHUB_PATH
 
     #- name: Setup .NET Core SDK
-    #  uses: actions/setup-dotnet@v1.8.0
-    #  with:
-    #    dotnet-version: 6.0.x #6.0.100-preview.5.21302.13
-    #    include-prerelease: true
+      uses: actions/setup-dotnet@v1.8.1
+      with:
+        dotnet-version: 6.0.x #6.0.100-preview.5.21302.13
+        include-prerelease: true
 
     - name: Acquire Blazor AOT workload
       run: |
-        dotnet workload install microsoft-net-sdk-blazorwebassembly-aot
+        dotnet workload install microsoft-net-sdk-blazorwebassembly-aot --skip-manifest-update
 
     - name: Restore
       run: dotnet restore
