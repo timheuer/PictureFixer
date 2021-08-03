@@ -51,7 +51,7 @@ jobs:
 
     - name: Acquire Blazor AOT workload
       run: |
-        dotnet workload install wasm-tools
+        dotnet workload install wasm-tools --configfile nuget.config
 
     - name: Restore
       run: dotnet restore
