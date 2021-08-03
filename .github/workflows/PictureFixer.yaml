@@ -27,9 +27,9 @@ jobs:
       DOTNET_GENERATE_ASPNET_CERTIFICATE: false
       DOTNET_ADD_GLOBAL_TOOLS_TO_PATH: false
       DOTNET_MULTILEVEL_LOOKUP: 0
-    defaults:
-      run:
-        working-directory: PictureFixer
+    #defaults:
+    #  run:
+    #    working-directory: PictureFixer
 
     steps:
     - uses: actions/checkout@v2
@@ -57,10 +57,10 @@ jobs:
       run: dotnet restore
 
     - name: Build
-      run: dotnet build Server/PictureFixer.Server.csproj -c Release
+      run: dotnet build PictureFixer/Server/PictureFixer.Server.csproj -c Release
 
     - name: Publish AOT
-      run: dotnet publish Server/PictureFixer.Server.csproj -c Release -o published
+      run: dotnet publish PictureFixer/Server/PictureFixer.Server.csproj -c Release -o published
 
     - name: Upload artifacts
       uses: actions/upload-artifact@v2
