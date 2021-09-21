@@ -47,11 +47,10 @@ jobs:
       with:
         dotnet-version: 6.0.100-rc.1.21426.23
         include-prerelease: true
-        config-file: nuget.config
 
     - name: Acquire Blazor AOT workload
       run: |
-        dotnet workload install wasm-tools --configfile nuget.config
+        dotnet workload install wasm-tools
 
     - name: Restore
       run: dotnet restore
