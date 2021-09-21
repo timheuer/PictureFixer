@@ -53,7 +53,7 @@ jobs:
         dotnet workload install wasm-tools
 
     - name: Restore
-      run: dotnet restore
+      run: dotnet restore PictureFixer/Server/PictureFixer.Server.csproj
 
     - name: Build
       run: dotnet build PictureFixer/Server/PictureFixer.Server.csproj -c Release
